@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    }
+    body{
+      background: #d3d8d8;
+    }
+    
+    #main_container{
+        width: 450px;
+        height: 600px;
+        margin: 0 auto;
+        background-color: rgba(156, 206, 18, 0.473);
+        border-radius: 10px;
+        margin-top: 30px;
+        box-shadow: 5px 10px lightslategrey;
+    }
+    h1{
+        text-align: center;
+        font-family: serif;
+        color:rgb(59, 56, 11) ;
+    }
+    .input_field{
+       
+        margin: 20px 0;
+        margin-top: 30px;
+        text-align: right;
+    }
+    .btn{
+     
+      margin: 5px;
+      padding: 2px;
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid gray;
+      border-radius: 5px;
+       text-align: center;
+      font-size: large;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+     .work_list{
+      width: 250px;
+      height: 35px;
+      margin-right: 65px;
+      box-shadow: 4px 5px 2px gray;
+      text-align: center;
+      font-weight: bold;
+      font-size: large;
+    }  
+    
+    .work_add{
+     margin-right: 8px;
+     align-items: center;
+     padding: 6px;
+     font-size: 18px;
+    }
+    .reset{
+      padding: 9px;
+      height: 27px;
+      /* display: flex; */
+      /* margin-left: 190px; */
+      align-items: center;
+      border-radius: 10px;
+      display: block;
+      text-align: right;
+    }
+    .reset-btn{
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: large;
+    }
+    
+    .items_list{
+      width: 254px;
+      height: 40px;
+      text-align: center;
+      text-decoration: wavy;
+      border-radius: 10px;
+      background-color: rgb(231, 242, 252);
+      text-decoration-style: double;
+      color: black;
+      display: flex;
+      justify-content: space-evenly;
+      margin:10px 0;
+      margin-left: 10px;
+      align-items: center;
+      word-break: break-all;
+    
+    }
+    .delet_items{
+      margin-left: auto;
+      height: 40px;
+      width: 121px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    .list_wrapper{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+      align-items: center;
+    }
+    .msg{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-align: center;
+      color: rgb(224, 22, 22);
+      font-size: 3  0px;
+    }
