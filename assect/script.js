@@ -15,32 +15,42 @@ let dataArray = [];
 
 
 //Data store in localStorage.
+
 const getData = JSON.parse(localStorage.getItem('key'));
-for(let i of getData){
-  document.getElementsByClassName("display_items")[0].innerHTML += 
-  "<div class='list_wrapper'>" +
-  "<div class='items_list'>" +
-  i +
-  "</div>" +
-  "<button class='delet_items'>Delete</button>" +
-  "</div>";
+if(getData){
+ for(let i of getData){
+   document.getElementsByClassName("display_items")[0].innerHTML += 
+
+   "<div class='list_wrapper'>" +
+     "<div class='items_list'>" +
+       i +
+     "</div>" +
+   "<button class='delet_items'>Delete</button>" +
+   "</div>";
+  }
 }
+//inputFild.addEventListener("focus",()=>itemsDiv.innerHTML = "")
 
 //get html tag and div delete button
 let listRender = document.getElementsByClassName("display_items")[0];
 const deleteButton = document.querySelectorAll(".delet_items");
 
 //Delete stored data from localStorage.
+function deleteStoreValue(){
 deleteButton.forEach((everyButton) => {
   everyButton.addEventListener("click", (e) => {
     listRender.removeChild(e.target.parentElement);
-    listRender.localStorage.removeItem("display_items")[0];
+    //localStorage.removeItem("key");
   });
 });
+}
+deleteStoreValue();
+
+
+
 
 //click to add button.
 function addItemsHendel(e) {
-    console.log(dataStored);
 
   const inputData = document.getElementsByClassName("work_list")[0].value;
   if (inputData != "") {
@@ -54,7 +64,6 @@ function addItemsHendel(e) {
       "</div>";
     dataStored.push(data);
     dataArray.push(inputData);
-    
     listRender.innerHTML += dataStored[dataStored.length - 1];
 
     //targat every delete buttons
@@ -64,7 +73,6 @@ function addItemsHendel(e) {
       deleteButton.forEach((everyButton) => {
         everyButton.addEventListener("click", (e) => {
           listRender.removeChild(e.target.parentElement);
-          listRender.localStorage.removeItem("display_items")[0];
         });
       });
     }
@@ -81,8 +89,9 @@ function addItemsHendel(e) {
     //store data in localStorage
     let storeData = JSON.stringify(dataArray);
     localStorage.setItem("key", storeData);
-    
-    }
+
+  }
+
 }
 //addItemsHendel function end.
 
