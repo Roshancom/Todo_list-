@@ -17,14 +17,16 @@ let getData = JSON.parse(localStorage.getItem("key"));
 
 if (getData) {
   getData.forEach((el) => {
-    document.getElementsByClassName("display_items")[0].innerHTML +=
-      `<div class='list_wrapper'>
+    document.getElementsByClassName(
+      "display_items")[0].innerHTML +=
+       `<div class='list_wrapper'>
       <div class='items_list'>
       ${el}
       </div>
       <button id='${el}' class='delete_items'>Delete</button>
       </div>`;
   });
+ 
 }
 
 //get html tag and div delete button
@@ -32,41 +34,45 @@ let listRender = document.getElementsByClassName("display_items")[0];
 const deleteButton = document.querySelectorAll(".delete_items");
 
 //Delete stored data from localStorage.
-function deleteStoreValue() {
+// function deleteStoreValue() {  
   deleteButton.forEach((everyButton) => {
     everyButton.addEventListener("click", (e) => {
       listRender.removeChild(e.target.parentElement);
-      getData = getData.filter((el)=> el !== e.target.id);
-      localStorage.setItem("key", JSON.stringify(getData))
+      getData = getData.filter((el) => el !== e.target.id);
+      localStorage.setItem("key", JSON.stringify(getData));
     });
   });
-}
-deleteStoreValue();
+
 
 //click to add button.
 function addItemsHendel(e) {
   const inputData = document.getElementsByClassName("work_list")[0].value;
   if (inputData != "") {
-    let data =
-     ` <div class='list_wrapper'>
+    let data = ` <div class='list_wrapper'>
       <div class='items_list'>
         ${inputData}
       </div>
-      <button class='delete_items'>Delete</button>
+      <button id="${inputData}" class='delete_items'>Delete</button>
       </div>`;
     dataStored.push(data);
     dataArray.push(inputData);
     listRender.innerHTML += dataStored[dataStored.length - 1];
 
+    
     //targat every delete buttons
     if (itemsDiv.children.length <= 5) {
       const deleteButton = document.querySelectorAll(".delete_items");
-
-      deleteButton.forEach((everyButton) => {
-        everyButton.addEventListener("click", (e) => {
-          listRender.removeChild(e.target.parentElement);
-        });
-      });
+      if(dataArray){
+        deleteButton.forEach((everyButton) => {
+          everyButton.addEventListener("click", (e) => {
+            listRender.removeChild(e.target.parentElement);
+            dataArray = dataArray.filter((el) => el !== e.target.id);
+            localStorage.setItem("key", JSON.stringify(dataArray));
+          });
+        })
+        // getData = JSON.parse(localStorage.getItem("key"));
+        // console.log(getData)
+    };
     }
 
     //empty inputfild after add items.
